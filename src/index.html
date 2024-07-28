@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Restaurant Page</title>
+        <title>To-Do List</title>
+        <link href="style.css" rel="stylesheet" type="text/css"/>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +13,7 @@
         <div id="content">
             <div id="sidebar">
                 <div class="header">
-                    <h1 class="logo">To-do</h1>
+                    <h1 class="logo">To-do List</h1>
                     <button type="button" class="dock-sidebar">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
                         <path d="M212.309-140.001q-29.923 0-51.115-21.193-21.193-21.192-21.193-51.115v-535.382q0-29.923 21.193-51.115 21.192-21.193 51.115-21.193h535.382q29.923 0 51.115 21.193 21.193 21.192 21.193 51.115v535.382q0 29.923-21.193 51.115-21.192 21.193-51.115 21.193H212.309ZM320-200v-560H212.309q-4.616 0-8.463 3.846-3.846 3.847-3.846 8.463v535.382q0 4.616 3.846 8.463 3.847 3.846 8.463 3.846H320Zm59.999 0h367.692q4.616 0 8.463-3.846 3.846-3.847 3.846-8.463v-535.382q0-4.616-3.846-8.463-3.847-3.846-8.463-3.846H379.999v560ZM320-200H200h120Z"></path>
@@ -21,7 +22,7 @@
                 </div>
                 <div class="tasks">
                     <button type="button" class="add-task-sidebar">
-                        <p>Add Task</p>
+                        <p>Add Task (+)</p>
                     </button>
 
                     <button type="button" class="all-tasks">
@@ -40,17 +41,16 @@
                     </button>
 
                     <div id="projects">
-                        <h3>My Projects</h3>
+                        <h3 class="project-header">My Projects</h3>
                         <ul class="projects-list">
                             <li class="project">
                             <button class="project-folder">
                                 <p class="project-name">Website</p>
-                                <p class="total-tasks">3</p>
                                 <span class="project-settings">
                             </button>
                         </ul>
 
-                        <button type="button" class="add-project">+ Create a new project</button>
+                        <button type="button" class="add-project">Create a new project (+)</button>
                     </div>
                 </div>
             </div>
