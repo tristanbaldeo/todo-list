@@ -24,6 +24,7 @@ body {
     padding: 12px;
     scrollbar-width: none;
     user-select: none;
+    max-width: 300px;
     min-width: 260px;
     z-index: 2;
 }
@@ -170,4 +171,61 @@ h2 {
 
 .delete-task:hover {
     background-color: #1e1b1b;
+}
+
+.dialog-box {
+    background-color: #3e393a;
+    margin-top: 8px;
+    padding: 16px 16px 8px 16px;
+}
+
+.dialog-box-sidebar {
+    margin: 8px 0px;
+}
+
+.dialog {
+    background: transparent;
+    position: relative;
+}
+
+.dialog-form {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 1fr 1fr;
+}
+
+input, textarea, select, option {
+    background: #4f494a;
+    border: 1px solid black;
+    border-radius: 4px;
+    color: white;
+    display: block;
+    font-size: .8rem;
+    margin-bottom: .5rem;
+    padding: .5rem;
+    width: 100%;
+}
+
+textarea {
+    height: 8rem;
+}
+
+.buttons {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 8px 12px;
+    width: 100%;
+}
+
+.add, .close {
+    background-color: #f4f4f4;
+    color: black;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 8px 0px;
 }

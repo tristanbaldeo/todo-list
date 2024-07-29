@@ -25,33 +25,35 @@
                         <p>Add Task (+)</p>
                     </button>
 
-                    <div class="dialog-box">
-                        <form method="dialog">
-                            <div class="task-name">
-                                <input name="task-name" class="task-name" placeholder="Task name (required)" maxlength="30" autocomplete="off" pattern="^(?!.*\\s{2}).*$" required="">
-                            </div>
-                            <div class="due-date">
-                                <input type="date" name="due-date" class="due-date" required="">
-                            </div>
-                            <div class="priority">
-                                <select class="priority" name="priority"><option value="Priority" selected="selected">Priority</option>
-                                    <option value="Not Priority">Not Priority</option>
-                                </select>
-                            </div>
-                            <div class="location">
-                                <select class="location" name="location">
-                                    <option value="Tasks">Tasks</option>
-                                    <optgroup label="Projects"></optgroup>
-                                </select>
-                            </div>
-                            <div class="task-notes">
-                                <textarea name="task-notes" class="task-notes" pattern="^(?!.*\\s{2}).*$" placeholder="Notes (optional)" rows="6" maxlength="200"></textarea>
-                            </div>
-                            <div class="buttons">
-                                <button type="submit" class="close" formnovalidate="">Close</button>
-                                <button type="submit" class="add">Add</button>
-                            </div>
-                        </form>
+                    <div class="dialog-box-sidebar">
+                        <div class="dialog">
+                            <form method="dialog">
+                                <div class="task-name">
+                                    <input name="task-name" class="task-name" placeholder="Task name (required)" maxlength="30" autocomplete="off" pattern="^(?!.*\\s{2}).*$" required="">
+                                </div>
+                                <div class="task-notes">
+                                    <textarea name="task-notes" class="task-notes" pattern="^(?!.*\\s{2}).*$" placeholder="Notes (optional)" rows="6" maxlength="200"></textarea>
+                                </div>
+                                <div class="due-date">
+                                    <input type="date" name="due-date" class="due-date" required="">
+                                </div>
+                                <div class="priority">
+                                    <select class="priority" name="priority"><option value="Priority" selected="selected">Priority</option>
+                                        <option value="Not Priority">Not Priority</option>
+                                    </select>
+                                </div>
+                                <div class="location">
+                                    <select class="location" name="location">
+                                        <option value="Tasks">Tasks</option>
+                                        <optgroup label="Projects"></optgroup>
+                                    </select>
+                                </div>
+                                <div class="buttons">
+                                    <button type="submit" class="close" formnovalidate="">Close</button>
+                                    <button type="submit" class="add">Add</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
 
                     <button type="button" class="all-tasks">
@@ -80,11 +82,6 @@
                         </ul>
 
                         <div class="add-project-container">
-                            <button type="button" class="cancel-project" title="Cancel">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
-                                    <path d="m336-293.847 144-144 144 144L666.153-336l-144-144 144-144L624-666.153l-144 144-144-144L293.847-624l144 144-144 144L336-293.847Zm144.067 193.846q-78.836 0-148.204-29.92-69.369-29.92-120.682-81.21-51.314-51.291-81.247-120.629-29.933-69.337-29.933-148.173t29.92-148.204q29.92-69.369 81.21-120.682 51.291-51.314 120.629-81.247 69.337-29.933 148.173-29.933t148.204 29.92q69.369 29.92 120.682 81.21 51.314 51.291 81.247 120.629 29.933 69.337 29.933 148.173t-29.92 148.204q-29.92 69.369-81.21 120.682-51.291 51.314-120.629 81.247-69.337 29.933-148.173 29.933ZM480-160q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"></path>
-                                </svg>
-                            </button>
                             <input type="text" name="new-project" placeholder="Project name + [Enter]" maxlength="20" class="new-project" pattern="^(?!.*\s{2}).*$" required="">
                         </div>
 
@@ -110,7 +107,7 @@
                 </div>
 
                 <div class="dialog-box">
-                    <form method="dialog">
+                    <form method="dialog" class="dialog-form">
                         <div class="dialog-left">
                             <div class="task-name">
                                 <input name="task-name" class="task-name" placeholder="Task name (required)" maxlength="30" autocomplete="off" pattern="^(?!.*\\s{2}).*$" required="">
