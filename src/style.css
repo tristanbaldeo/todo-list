@@ -9,7 +9,7 @@ body {
     font-family: 'Roboto', sans-serif;
     height: 100vh;
     display: grid;
-    grid-template-columns: 0.8fr 3fr;
+    grid-template-columns: 0fr 3fr;
     background-color: #262223;
     margin: 0;
 }
@@ -174,12 +174,18 @@ h2 {
 }
 
 .dialog-box {
+    display: none;
     background-color: #3e393a;
     margin-top: 8px;
     padding: 16px 16px 8px 16px;
 }
 
+.new-project {
+    display: none;
+}
+
 .dialog-box-sidebar {
+    display: none;
     margin: 8px 0px;
 }
 
