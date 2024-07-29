@@ -51,7 +51,6 @@ function createSidebar() {
   addTaskButton.appendChild(addTaskText);
 
   tasks.appendChild(addTaskButton);
-  tasks.appendChild(createDialogBoxSidebar());
   tasks.appendChild(createTaskButton('all-tasks', 'All Tasks'));
   tasks.appendChild(createTaskButton('priority-tasks', 'Priority'));
   tasks.appendChild(createTaskButton('today-tasks', 'Today'));
@@ -72,119 +71,6 @@ function createMain() {
   container.appendChild(createTaskContainer());
 
   return container;
-}
-
-function createDialogBoxSidebar() {
-  const dialogBox = document.createElement('div');
-  dialogBox.className = 'dialog-box-sidebar';
-
-  const dialog = document.createElement('div');
-  dialog.className = 'dialog';
-
-  const form = document.createElement('form');
-  form.method = 'dialog';
-
-  const taskName = document.createElement('div');
-  taskName.className = 'task-name';
-
-  const taskNameInput = document.createElement('input');
-  taskNameInput.name = 'task-name';
-  taskNameInput.className = 'task-name';
-  taskNameInput.placeholder = 'Task name (required)';
-  taskNameInput.maxLength = 30;
-  taskNameInput.autocomplete = 'off';
-  taskNameInput.pattern = '^(?!.*\\s{2}).*$';
-  taskNameInput.required = true;
-  taskName.appendChild(taskNameInput);
-
-  const taskNotes = document.createElement('div');
-  taskNotes.className = 'task-notes';
-
-  const taskNotesTextarea = document.createElement('textarea');
-  taskNotesTextarea.name = 'task-notes';
-  taskNotesTextarea.className = 'task-notes';
-  taskNotesTextarea.pattern = '^(?!.*\\s{2}).*$';
-  taskNotesTextarea.placeholder = 'Notes (optional)';
-  taskNotesTextarea.rows = 6;
-  taskNotesTextarea.maxLength = 200;
-  taskNotes.appendChild(taskNotesTextarea);
-
-  const dueDate = document.createElement('div');
-  dueDate.className = 'due-date';
-
-  const dueDateInput = document.createElement('input');
-  dueDateInput.type = 'date';
-  dueDateInput.name = 'due-date';
-  dueDateInput.className = 'due-date';
-  dueDateInput.required = true;
-  dueDate.appendChild(dueDateInput);
-
-  const priority = document.createElement('div');
-  priority.className = 'priority';
-
-  const prioritySelect = document.createElement('select');
-  prioritySelect.className = 'priority';
-  prioritySelect.name = 'priority';
-
-  const option1 = document.createElement('option');
-  option1.value = 'Priority';
-  option1.selected = true;
-  option1.textContent = 'Priority';
-
-  const option2 = document.createElement('option');
-  option2.value = 'Not Priority';
-  option2.textContent = 'Not Priority';
-
-  prioritySelect.appendChild(option1);
-  prioritySelect.appendChild(option2);
-  priority.appendChild(prioritySelect);
-
-  const location = document.createElement('div');
-  location.className = 'location';
-
-  const locationSelect = document.createElement('select');
-  locationSelect.className = 'location';
-  locationSelect.name = 'location';
-
-  const optionTasks = document.createElement('option');
-  optionTasks.value = 'Tasks';
-  optionTasks.textContent = 'Tasks';
-
-  const optgroup = document.createElement('optgroup');
-  optgroup.label = 'Projects';
-
-  locationSelect.appendChild(optionTasks);
-  locationSelect.appendChild(optgroup);
-  location.appendChild(locationSelect);
-
-  const buttons = document.createElement('div');
-  buttons.className = 'buttons';
-
-  const closeButton = document.createElement('button');
-  closeButton.type = 'submit';
-  closeButton.className = 'close';
-  closeButton.formNoValidate = true;
-  closeButton.textContent = 'Close';
-
-  const addButton = document.createElement('button');
-  addButton.type = 'submit';
-  addButton.className = 'add';
-  addButton.textContent = 'Add';
-
-  buttons.appendChild(closeButton);
-  buttons.appendChild(addButton);
-
-  form.appendChild(taskName);
-  form.appendChild(taskNotes);
-  form.appendChild(dueDate);
-  form.appendChild(priority);
-  form.appendChild(location);
-  form.appendChild(buttons);
-
-  dialog.appendChild(form);
-  dialogBox.appendChild(dialog);
-
-  return dialogBox;
 }
 
 function createTaskButton(className, text) {
