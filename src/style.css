@@ -51,7 +51,7 @@ body {
 }
 
 .add-task-sidebar, .add-project {
-    font-weight: 600
+    font-weight: 600;
 }
 
 .add-task-sidebar, .all-tasks, .priority-tasks, .today-tasks, .project-folder, .add-project {
@@ -80,12 +80,17 @@ body {
 
 .main {
     color: #f4f4f4;
-    margin: 0 auto;
+    margin: 0;
     padding: 12px 52px;
-    height: auto;
-    position: relative;
-    width: 960px;
-    min-width: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    min-width: 400px;
+}
+
+.container {
+    flex: 1;
 }
 
 .main-header {
@@ -125,9 +130,9 @@ h2 {
     border-bottom: 1px solid rgb(100, 100, 100);
     cursor: pointer;
     display: grid;
-    gap: .8rem;
+    gap: 12px;
     grid-template-columns: auto 1fr auto;
-    padding: 1rem 0;
+    padding: 16px 0;
 }
 
 .task-name {
@@ -164,5 +169,5 @@ button.delete-task {
 }
 
 .delete-task:hover {
-    background-color: red;
+    background-color: #1e1b1b;
 }
