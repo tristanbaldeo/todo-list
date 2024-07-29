@@ -25,6 +25,35 @@
                         <p>Add Task (+)</p>
                     </button>
 
+                    <div class="dialog-box">
+                        <form method="dialog">
+                            <div class="task-name">
+                                <input name="task-name" class="task-name" placeholder="Task name (required)" maxlength="30" autocomplete="off" pattern="^(?!.*\\s{2}).*$" required="">
+                            </div>
+                            <div class="due-date">
+                                <input type="date" name="due-date" class="due-date" required="">
+                            </div>
+                            <div class="priority">
+                                <select class="priority" name="priority"><option value="Priority" selected="selected">Priority</option>
+                                    <option value="Not Priority">Not Priority</option>
+                                </select>
+                            </div>
+                            <div class="location">
+                                <select class="location" name="location">
+                                    <option value="Tasks">Tasks</option>
+                                    <optgroup label="Projects"></optgroup>
+                                </select>
+                            </div>
+                            <div class="task-notes">
+                                <textarea name="task-notes" class="task-notes" pattern="^(?!.*\\s{2}).*$" placeholder="Notes (optional)" rows="6" maxlength="200"></textarea>
+                            </div>
+                            <div class="buttons">
+                                <button type="submit" class="close" formnovalidate="">Close</button>
+                                <button type="submit" class="add">Add</button>
+                            </div>
+                        </form>
+                    </div>
+
                     <button type="button" class="all-tasks">
                         <p>All Tasks</p>
                         <p class="total-tasks"></p>
@@ -69,6 +98,40 @@
                 <div class="title-bar">
                     <h2>All tasks</h2>
                     <button class="add-task-main">Add task (+)</button>
+                </div>
+
+                <div class="dialog-box">
+                    <form method="dialog">
+                        <div class="dialog-left">
+                            <div class="task-name">
+                                <input name="task-name" class="task-name" placeholder="Task name (required)" maxlength="30" autocomplete="off" pattern="^(?!.*\\s{2}).*$" required="">
+                            </div>
+                            <div class="due-date">
+                                <input type="date" name="due-date" class="due-date" required="">
+                            </div>
+                            <div class="priority">
+                                <select class="priority" name="priority"><option value="Priority" selected="selected">Priority</option>
+                                    <option value="Not Priority">Not Priority</option>
+                                </select>
+                            </div>
+                            <div class="location">
+                                <select class="location" name="location">
+                                    <option value="Tasks">Tasks</option>
+                                    <optgroup label="Projects"></optgroup>
+                                </select>
+                            </div>
+                        </div>
+                            
+                        <div class="dialog-right">
+                            <div class="task-notes">
+                                <textarea name="task-notes" class="task-notes" pattern="^(?!.*\\s{2}).*$" placeholder="Notes (optional)" rows="6" maxlength="200"></textarea>
+                            </div>
+                            <div class="buttons">
+                                <button type="submit" class="close" formnovalidate="">Close</button>
+                                <button type="submit" class="add">Add</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
 
                 <div class="task-container">
