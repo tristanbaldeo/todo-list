@@ -37,7 +37,7 @@ body {
     padding: 0 12px;
 }
 
-.dock-sidebar, .dock-main {
+#dock-sidebar, #dock-main {
     cursor: pointer;
     fill: #f4f4f4;
     background-color: transparent;
@@ -47,7 +47,7 @@ body {
     width: 24px;
 }
 
-.dock-main {
+#dock-main {
     visibility: hidden;
 }
 
@@ -234,4 +234,12 @@ textarea {
     border-radius: 4px;
     cursor: pointer;
     padding: 8px 0px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.not-hidden {
+    visibility: visible;
 }

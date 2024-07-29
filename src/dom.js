@@ -15,11 +15,12 @@ export function initializeApp() {
     
     const h1 = document.createElement('h1');
     h1.className = 'logo';
-    h1.textContent = 'To-do List';
+    h1.textContent = 'To-Do List';
   
     const button = document.createElement('button');
     button.type = 'button';
-    button.className = 'dock-sidebar';
+    button.id = 'dock-sidebar';
+    button.className = 'not-hidden';
     
     const svg = createSVG(
       'http://www.w3.org/2000/svg',
@@ -263,7 +264,8 @@ export function initializeApp() {
   
     const dockMain = document.createElement('button');
     dockMain.type = 'button';
-    dockMain.className = 'dock-main';
+    dockMain.id = 'dock-main';
+    dockMain.className = 'hidden';
   
     const svg = createSVG(
       'http://www.w3.org/2000/svg',
