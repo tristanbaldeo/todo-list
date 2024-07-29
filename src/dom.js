@@ -25,7 +25,6 @@ function createSidebar() {
   const button = document.createElement('button');
   button.type = 'button';
   button.id = 'dock-sidebar';
-  button.className = 'not-hidden';
 
   const svg = createSVG(
     'http://www.w3.org/2000/svg',

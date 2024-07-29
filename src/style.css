@@ -14,6 +14,10 @@ body {
     margin: 0;
 }
 
+body.no-grid {
+    display: block;
+}
+
 #sidebar {
     background: #1e1b1b;
     display: grid;
@@ -45,10 +49,6 @@ body {
     height: 24px;
     padding: 0;
     width: 24px;
-}
-
-#dock-main {
-    visibility: hidden;
 }
 
 .add-task-sidebar, .add-project {
@@ -237,9 +237,10 @@ textarea {
 }
 
 .hidden {
-    visibility: hidden;
+    display: none;
 }
 
 .not-hidden {
+    display: block;
     visibility: visible;
 }
