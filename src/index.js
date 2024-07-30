@@ -2,6 +2,7 @@ import './style.css';
 import {initializeApp} from './dom';
 import {initializeSidebar} from './sidebar';
 import {submitForm, toggleDialogBox} from './tasks';
+import {toggleProjectInput} from './projects';
 
 document.addEventListener('DOMContentLoaded', () => {
     initializeApp();
@@ -28,5 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
             toggleDialogBox(false);
         });
+    }
+
+    const addProjectButton = document.querySelector('.add-project');
+    if (addProjectButton) {
+        addProjectButton.addEventListener('click', () => toggleProjectInput());
     }
 });
