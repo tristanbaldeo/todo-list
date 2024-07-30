@@ -2,7 +2,7 @@ import './style.css';
 import {initializeApp} from './dom';
 import {initializeSidebar} from './sidebar';
 import {submitForm, toggleDialogBox} from './tasks';
-import {toggleProjectInput} from './projects';
+import {toggleProjectInput, handleProjectInput} from './projects';
 
 document.addEventListener('DOMContentLoaded', () => {
     initializeApp();
@@ -34,5 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const addProjectButton = document.querySelector('.add-project');
     if (addProjectButton) {
         addProjectButton.addEventListener('click', () => toggleProjectInput());
+    }
+
+    const projectInput = document.querySelector('.new-project');
+    if (projectInput) {
+        projectInput.addEventListener('keypress', handleProjectInput);
     }
 });
