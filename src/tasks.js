@@ -25,10 +25,13 @@ function formatDate(dateStr) {
     return `${month}/${day}/${year}`;
 }
 
-function renderTasks(task) {
+function renderTasks() {
     const taskList = document.querySelector('.task-list');
-    const taskItem = createTaskItem(task.name, task.notes, task.date);
-    taskList.appendChild(taskItem);
+    taskList.innerHTML = '';
+    tasks.forEach((task, index) => {
+        const taskItem = createTaskItem(task, index);
+        taskList.appendChild(taskItem);
+    });
 }
 
 function toggleDialogBox(show) {
@@ -60,7 +63,7 @@ function submitForm(event) {
 
 export {submitForm, toggleDialogBox}
 
-function createTaskItem(name, notes, date) {
+function createTaskItem(task, index) {
     const taskItem = document.createElement('li');
     taskItem.className = 'task-item';
 
@@ -81,15 +84,15 @@ function createTaskItem(name, notes, date) {
 
     const taskName = document.createElement('h3');
     taskName.className = 'task-name';
-    taskName.textContent = name;
+    taskName.textContent = task.name;
 
     const taskNotes = document.createElement('p');
     taskNotes.className = 'task-notes';
-    taskNotes.textContent = notes;
+    taskNotes.textContent = task.notes;
 
     const metadata = document.createElement('p');
     metadata.className = 'metadata';
-    metadata.textContent = formatDate(date);
+    metadata.textContent = formatDate(task.date);
 
     taskItemData.appendChild(taskName);
     taskItemData.appendChild(taskNotes);
@@ -101,6 +104,11 @@ function createTaskItem(name, notes, date) {
     taskItem.appendChild(taskComplete);
     taskItem.appendChild(taskItemData);
     taskItem.appendChild(taskOptions);
+
+    taskItem.querySelector('.delete-task').addEventListener('click', () => {
+        tasks.splice(index, 1);
+        renderTasks();
+}); 
 
     return taskItem;
 }

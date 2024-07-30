@@ -143,7 +143,10 @@ h2 {
 .task-notes {
     font-size: 12px;
     margin-bottom: 8px;
-    width: auto;
+}
+
+p.task-notes {
+    word-wrap: break-word;
 }
 
 .metadata {
