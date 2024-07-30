@@ -14,6 +14,13 @@ function createTask(name, notes, date, priority, location) {
 
 function addTaskToList(task) {
     tasks.push(task);
+    renderTask(task);
+}
+
+function renderTask(task) {
+    const taskList = document.querySelector('.task-list');
+    const taskItem = createTaskItem(task.name, task.notes, task.date);
+    taskList.appendChild(taskItem);
 }
 
 function toggleDialogBox(show) {
@@ -44,3 +51,48 @@ function submitForm(event) {
 }
 
 export {submitForm, toggleDialogBox}
+
+function createTaskItem(name, notes, date) {
+    const taskItem = document.createElement('li');
+    taskItem.className = 'task-item';
+
+    const taskComplete = document.createElement('div');
+    taskComplete.className = 'task-complete';
+
+    const checkbox = document.createElement('button');
+    checkbox.type = 'button';
+    checkbox.role = 'checkbox';
+    checkbox.setAttribute('aria-checked', 'false');
+    checkbox.name = 'delete-item';
+    checkbox.title = 'Remove task';
+    checkbox.className = 'delete-task';
+    taskComplete.appendChild(checkbox);
+
+    const taskItemData = document.createElement('div');
+    taskItemData.className = 'task-item-data';
+
+    const taskName = document.createElement('h3');
+    taskName.className = 'task-name';
+    taskName.textContent = name;
+
+    const taskNotes = document.createElement('p');
+    taskNotes.className = 'task-notes';
+    taskNotes.textContent = notes;
+
+    const metadata = document.createElement('p');
+    metadata.className = 'metadata';
+    metadata.textContent = date;
+
+    taskItemData.appendChild(taskName);
+    taskItemData.appendChild(taskNotes);
+    taskItemData.appendChild(metadata);
+
+    const taskOptions = document.createElement('div');
+    taskOptions.className = 'task-options';
+
+    taskItem.appendChild(taskComplete);
+    taskItem.appendChild(taskItemData);
+    taskItem.appendChild(taskOptions);
+
+    return taskItem;
+}
