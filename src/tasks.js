@@ -14,10 +14,18 @@ function createTask(name, notes, date, priority, location) {
 
 function addTaskToList(task) {
     tasks.push(task);
-    renderTask(task);
+    renderTasks(task);
 }
 
-function renderTask(task) {
+function formatDate(dateStr) {
+    const date = new Date(dateStr);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
+    const year = date.getFullYear();
+    return `${month}/${day}/${year}`;
+}
+
+function renderTasks(task) {
     const taskList = document.querySelector('.task-list');
     const taskItem = createTaskItem(task.name, task.notes, task.date);
     taskList.appendChild(taskItem);
@@ -81,7 +89,7 @@ function createTaskItem(name, notes, date) {
 
     const metadata = document.createElement('p');
     metadata.className = 'metadata';
-    metadata.textContent = date;
+    metadata.textContent = formatDate(date);
 
     taskItemData.appendChild(taskName);
     taskItemData.appendChild(taskNotes);
