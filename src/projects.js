@@ -25,3 +25,26 @@ export function addProjectToList(project) {
     projects.push(project);
     renderProjects();
 }
+
+export function renderProjects() {
+    const projectList = document.querySelector('.projects-list');
+    projectList.innerHTML = '';
+    projects.forEach((project) => {
+        const projectItem = createProjectItem(project);
+        projectList.appendChild(projectItem);
+    });
+}
+
+export function createProjectItem(project) {
+    const projectItem = document.createElement('li');
+    projectItem.className = 'project';
+
+    const projectButton = document.createElement('button');
+    projectButton.className = 'project-folder';
+    projectButton.textContent = project.name;
+    projectButton.dataset.criteria = project.name;
+
+    projectItem.appendChild(projectButton);
+
+    return projectItem;
+}

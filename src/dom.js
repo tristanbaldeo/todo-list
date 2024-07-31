@@ -105,19 +105,6 @@ function createProjects() {
   const project = document.createElement('li');
   project.className = 'project';
 
-  const projectButton = document.createElement('button');
-  projectButton.className = 'project-folder';
-
-  const projectName = document.createElement('p');
-  projectName.className = 'project-name';
-  projectName.textContent = 'Website';
-
-  const projectSettings = document.createElement('span');
-  projectSettings.className = 'project-settings';
-
-  projectButton.appendChild(projectName);
-  projectButton.appendChild(projectSettings);
-  project.appendChild(projectButton);
   projectsList.appendChild(project);
   projects.appendChild(projectsList);
 
