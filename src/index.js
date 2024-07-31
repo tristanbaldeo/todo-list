@@ -1,6 +1,6 @@
 import './style.css';
 import {initializeApp} from './dom';
-import {initializeSidebar} from './sidebar';
+import {initializeSidebar, sidebarNavigation} from './sidebar';
 import {submitForm, toggleDialogBox} from './tasks';
 import {toggleProjectInput, handleProjectInput} from './projects';
 
@@ -40,4 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (projectInput) {
         projectInput.addEventListener('keypress', handleProjectInput);
     }
+
+    sidebarNavigation()
 });

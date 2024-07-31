@@ -1,3 +1,5 @@
+import {sidebarNavigation} from './sidebar';
+
 let projects = [];
 
 function createProject(name) {
@@ -25,6 +27,7 @@ function addProjectToList(project) {
     projects.push(project);
     renderProjects();
     updateProjectDropdown();
+    sidebarNavigation();
 }
 
 function renderProjects() {
@@ -61,3 +64,5 @@ function updateProjectDropdown() {
         projectOptGroup.appendChild(option);
     })
 }
+
+// Delete Project

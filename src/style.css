@@ -75,6 +75,10 @@ body.no-grid {
     background-color: #4f494a;
 }
 
+.active {
+    background-color: #4f494a;
+}
+
 .project-header {
     padding: 16px 12px;
 }
@@ -248,4 +252,7 @@ textarea {
 .not-hidden {
     display: block;
     visibility: visible;
+}
+.new-project {
+    margin-top: 8px;
 }

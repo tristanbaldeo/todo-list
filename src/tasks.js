@@ -112,3 +112,5 @@ function createTaskItem(task, index) {
 
     return taskItem;
 }
+
+// Sort tasks

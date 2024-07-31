@@ -16,3 +16,21 @@ function toggleSidebar() {
     dockMain.classList.toggle('hidden');
     body.classList.toggle('no-grid');
 }
+
+// Active sidebar buttons
+export function sidebarNavigation() {
+    const sidebarButtons = document.querySelectorAll('.tasks button:not(.add-task-sidebar, .add-project)');
+    sidebarButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const selectedTab = e.currentTarget;
+            sidebarButtons.forEach(btn => btn.classList.remove('active'));
+            selectedTab.classList.add('active');
+
+            const h2 = document.querySelector('h2');
+            h2.textContent = selectedTab.textContent;
+        });
+    });
+    
+    // Select "All Tasks" by default
+    document.querySelector('.all-tasks').click();
+}
