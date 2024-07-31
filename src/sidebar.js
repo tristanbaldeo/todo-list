@@ -1,3 +1,5 @@
+import {renderTasks} from './tasks';
+
 export function initializeSidebar() {
     document.getElementById('dock-sidebar').addEventListener('click', toggleSidebar);
     document.getElementById('dock-main').addEventListener('click', toggleSidebar);
@@ -28,9 +30,10 @@ export function sidebarNavigation() {
 
             const h2 = document.querySelector('h2');
             h2.textContent = selectedTab.textContent;
+
+            const criteria = selectedTab.dataset.criteria;
+            renderTasks(criteria);
         });
     });
-    
-    // Select "All Tasks" by default
     document.querySelector('.all-tasks').click();
 }

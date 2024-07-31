@@ -51,9 +51,9 @@ function createSidebar() {
   addTaskButton.appendChild(addTaskText);
 
   tasks.appendChild(addTaskButton);
-  tasks.appendChild(createTaskButton('all-tasks', 'All Tasks'));
-  tasks.appendChild(createTaskButton('priority-tasks', 'Priority'));
-  tasks.appendChild(createTaskButton('today-tasks', 'Today'));
+  tasks.appendChild(createTaskButton('all-tasks', 'All Tasks', 'all'));
+  tasks.appendChild(createTaskButton('priority-tasks', 'Priority', 'priority'));
+  tasks.appendChild(createTaskButton('today-tasks', 'Today', 'today'));
   tasks.appendChild(createProjects());
 
   sidebar.appendChild(tasks);
@@ -73,10 +73,11 @@ function createMain() {
   return container;
 }
 
-function createTaskButton(className, text) {
+function createTaskButton(className, text, criteria) {
   const button = document.createElement('button');
   button.type = 'button';
   button.className = className;
+  button.dataset.criteria = criteria;
 
   const buttonText = document.createElement('p');
   buttonText.textContent = text;

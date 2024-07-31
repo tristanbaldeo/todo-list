@@ -25,10 +25,22 @@ function formatDate(dateStr) {
     return `${month}/${day}/${year}`;
 }
 
-function renderTasks() {
+export function renderTasks(criteria = 'all') {
     const taskList = document.querySelector('.task-list');
     taskList.innerHTML = '';
-    tasks.forEach((task, index) => {
+
+    let filteredTasks = tasks;
+
+    if (criteria === 'priority') {
+        filteredTasks = tasks.filter(task => task.priority === 'Priority');
+    } else if (criteria === 'today') {
+        const today = new Date().toISOString().split('T')[0];
+        filteredTasks = tasks.filter(task => task.date === today);
+    } else if (criteria !== 'all') {
+        filteredTasks = tasks.filter(task => task.location === criteria);
+    }
+
+    filteredTasks.forEach((task, index) => {
         const taskItem = createTaskItem(task, index);
         taskList.appendChild(taskItem);
     });
