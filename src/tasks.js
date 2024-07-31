@@ -1,4 +1,5 @@
 let tasks = [];
+let currentCriteria = 'all';
 
 // Factory function to create task object
 function createTask(name, notes, date, priority, location) {
@@ -14,18 +15,19 @@ function createTask(name, notes, date, priority, location) {
 
 function addTaskToList(task) {
     tasks.push(task);
-    renderTasks(task);
+    renderTasks(currentCriteria);
 }
 
 function formatDate(dateStr) {
     const date = new Date(dateStr);
-    const day = String(date.getDate() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const year = date.getFullYear();
     return `${month}/${day}/${year}`;
 }
 
 export function renderTasks(criteria = 'all') {
+    currentCriteria = criteria;
     const taskList = document.querySelector('.task-list');
     taskList.innerHTML = '';
 
@@ -124,5 +126,3 @@ function createTaskItem(task, index) {
 
     return taskItem;
 }
-
-// Sort tasks
