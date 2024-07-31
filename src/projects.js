@@ -21,12 +21,13 @@ export function handleProjectInput(e) {
     }
 }
 
-export function addProjectToList(project) {
+function addProjectToList(project) {
     projects.push(project);
     renderProjects();
+    updateProjectDropdown();
 }
 
-export function renderProjects() {
+function renderProjects() {
     const projectList = document.querySelector('.projects-list');
     projectList.innerHTML = '';
     projects.forEach((project) => {
@@ -35,7 +36,7 @@ export function renderProjects() {
     });
 }
 
-export function createProjectItem(project) {
+function createProjectItem(project) {
     const projectItem = document.createElement('li');
     projectItem.className = 'project';
 
@@ -47,4 +48,16 @@ export function createProjectItem(project) {
     projectItem.appendChild(projectButton);
 
     return projectItem;
+}
+
+function updateProjectDropdown() {
+    const taskProjectSelect = document.querySelector('select[name="location"]');
+    const projectOptGroup = taskProjectSelect.querySelector('optgroup[label="Projects"]');
+    projectOptGroup.innerHTML = '';
+    projects.forEach((project) => {
+        const option = document.createElement('option');
+        option.value = project.name;
+        option.textContent = project.name;
+        projectOptGroup.appendChild(option);
+    })
 }
