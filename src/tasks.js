@@ -1,4 +1,6 @@
-let tasks = [];
+import {saveTasks, loadTasks} from './storage';
+
+let tasks = loadTasks();
 let currentCriteria = 'all';
 
 // Factory function to create task object
@@ -16,6 +18,7 @@ function createTask(name, notes, date, priority, location) {
 
 function addTaskToList(task) {
     tasks.push(task);
+    saveTasks(tasks);
     renderTasks(currentCriteria);
 }
 
@@ -123,6 +126,7 @@ function createTaskItem(task, index) {
     checkbox.addEventListener('click', () => {
         const taskIndex = tasks.findIndex(t => t.id === task.id);
         tasks.splice(taskIndex, 1);
+        saveTasks(tasks);
         renderTasks(currentCriteria);
     });
     return taskItem;

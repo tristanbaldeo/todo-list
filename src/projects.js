@@ -1,6 +1,7 @@
 import {sidebarNavigation} from './sidebar';
+import {saveProjects, loadProjects} from './storage';
 
-let projects = [];
+let projects = loadProjects();
 
 function createProject(name) {
     return {
@@ -25,33 +26,19 @@ export function handleProjectInput(e) {
 
 function addProjectToList(project) {
     projects.push(project);
+    saveProjects(projects);
     renderProjects();
     updateProjectDropdown();
     sidebarNavigation();
 }
 
-function renderProjects() {
+export function renderProjects() {
     const projectList = document.querySelector('.projects-list');
     projectList.innerHTML = '';
     projects.forEach((project) => {
         const projectItem = createProjectItem(project);
         projectList.appendChild(projectItem);
     });
-}
-
-function createSVG(namespace, pathData, width, height) {
-    const svg = document.createElementNS(namespace, 'svg');
-    svg.setAttribute('xmlns', namespace);
-    svg.setAttribute('height', height);
-    svg.setAttribute('viewBox', '0 -960 960 960');
-    svg.setAttribute('width', width);
-
-    const path = document.createElementNS(namespace, 'path');
-    path.setAttribute('d', pathData);
-
-    svg.appendChild(path);
-
-    return svg;
 }
 
 function createProjectItem(project) {
@@ -79,7 +66,7 @@ function createProjectItem(project) {
     return projectItem;
 }
 
-function updateProjectDropdown() {
+export function updateProjectDropdown() {
     const taskProjectSelect = document.querySelector('select[name="location"]');
     const projectOptGroup = taskProjectSelect.querySelector('optgroup[label="Projects"]');
     projectOptGroup.innerHTML = '';
@@ -93,6 +80,7 @@ function updateProjectDropdown() {
 
 function deleteProject(projectName) {
     projects = projects.filter(project => project.name !== projectName);
+    saveProjects(projects);
     renderProjects();
     updateProjectDropdown();
     sidebarNavigation();
