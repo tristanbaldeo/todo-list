@@ -33,21 +33,6 @@ body.no-grid {
     z-index: 2;
 }
 
-@media (max-width: 500px) {
-
-    #sidebar.open {
-        display: block;
-    }
-
-    #dock-main {
-        display: block;
-    }
-
-    #sidebar {
-        height: 100sh;
-    }
-}
-
 .header, .project-header {
     color: #f4f4f4;
     align-items: center;
