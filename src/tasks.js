@@ -4,6 +4,7 @@ let currentCriteria = 'all';
 // Factory function to create task object
 function createTask(name, notes, date, priority, location) {
     return {
+        id: Date.now().toString(),
         name,
         notes,
         date,
@@ -20,7 +21,7 @@ function addTaskToList(task) {
 
 function formatDate(dateStr) {
     const date = new Date(dateStr);
-    const day = String(date.getDate()).padStart(2, '0');
+    const day = String(date.getDate() + 1).padStart(2, '0');
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const year = date.getFullYear();
     return `${month}/${day}/${year}`;
@@ -119,10 +120,10 @@ function createTaskItem(task, index) {
     taskItem.appendChild(taskItemData);
     taskItem.appendChild(taskOptions);
 
-    taskItem.querySelector('.delete-task').addEventListener('click', () => {
-        tasks.splice(index, 1);
-        renderTasks();
-}); 
-
+    checkbox.addEventListener('click', () => {
+        const taskIndex = tasks.findIndex(t => t.id === task.id);
+        tasks.splice(taskIndex, 1);
+        renderTasks(currentCriteria);
+    });
     return taskItem;
 }
