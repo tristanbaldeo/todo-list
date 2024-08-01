@@ -256,3 +256,21 @@ textarea {
 .new-project {
     margin-top: 8px;
 }
+
+.project {
+    display: flex;
+}
+
+.delete-project {
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    fill: #f4f4f4;
+    background-color: transparent;
+    border: 0;
+    margin-left: 8px;
+}
+
+.delete-project:hover {
+    fill: #d4d4d4
+}
